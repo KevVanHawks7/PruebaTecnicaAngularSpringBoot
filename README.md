@@ -10,11 +10,11 @@ NODEJS:
 ![Image text](https://github.com/KevVanHawks7/img/blob/main/img1.png)
 
 Xammp:
-![Image text](https://github.com/KevVanHawks7/img/blob/main/img2.png)
+![Image text](https://github.com/KevVanHawks7/img/blob/main/img3.png)
 
 Se instalará Angular CLI para poder hacer uso de Angular:
 
-![Image text](https://github.com/KevVanHawks7/img/blob/main/img3.png)
+![Image text](https://github.com/KevVanHawks7/img/blob/main/img2.png)
 
 
 1.	Lenguaje y Versiones utilizadas:
