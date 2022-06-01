@@ -129,40 +129,18 @@
                       </div>
                       <div class="form-group mb-3">
                         <label>Imagen : </label>
-                        <input
-                          type="file"
-                          class="form-control my-2"
-                          (change)="selectFiles($event)"
-                          id="imagen"
-                          [(ngModel)]="producto.imagen"
-                          name="imagen"
-                          required
-                          #imagen="ngModel"
-                        />
-                        <div
-                          class="alert alert-danger"
-                          *ngIf="
-                            imagen.invalid && (imagen.dirty || imagen.touched)
-                          "
-                        >
+                        <input type="file" class="form-control my-2" (change)="selectFiles($event)" id="imagen" [(ngModel)]="producto.imagen" name="imagen" required #imagen="ngModel"/>
+                        <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
                           <div *ngIf="imagen.errors.required">
                             Ingrese una imagen
                           </div>
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                           Cerrar
                         </button>
-                        <button
-                          type="submit"
-                          class="btn btn-primary"
-                          [disabled]="!productForm.form.valid"
-                        >
+                        <button type="submit" class="btn btn-primary" [disabled]="!productForm.form.valid">
                           Guardar
                         </button>
                       </div>
@@ -181,7 +159,6 @@
             <tr>
               <th scope="col"></th>
               <th scope="col">Nombre</th>
-              <th scope="col">Descripción</th>
               <th scope="col">Categoría</th>
               <th scope="col">Precio</th>
               <th scope="col">Cantidad</th>
@@ -198,12 +175,11 @@
                   width="60px"
                 />
               </td>
-              <td class="pt-4">{{ producto.nombre }}</td>
-              <td class="pt-4">{{ producto.descripcion }}</td>
-              <td class="pt-4">{{ producto.categoria }}</td>
-              <td class="pt-4">{{ producto.precio }}</td>
-              <td class="pt-4">{{ producto.cantidad }}</td>
-              <td class="pt-4">
+              <td><p class="fuente-2">{{producto.nombre}}</p><p class="fuente">{{producto.descripcion}}</p></td>
+              <td class="pt-4 fuente-2">{{ producto.categoria }}</td>
+              <td class="pt-4 fuente-2">$ {{ producto.precio }}</td>
+              <td class="pt-4 fuente-2">{{ producto.cantidad }}</td>
+              <td class="pt-4 fuente-2">
                 <div *ngIf="producto.inventario=='En Stock'">
                   <p class="fuente-2" style="color: green;"><i class="bi bi-circle-fill mx-2" style="font-size: 8px;"></i>{{producto.inventario}}</p>
                 </div> 
