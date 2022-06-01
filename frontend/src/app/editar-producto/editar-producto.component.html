@@ -1,0 +1,97 @@
+<body>
+    <div class="box bg-light rounded-3 w-100 m-auto">
+    <h3 class="my-3">Editar Producto</h3>
+    <form (ngSubmit)= "onSubmit()" #productForm="ngForm">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label>Nombre : </label>
+                <input type ="text" class="form-control my-2" id="nombre" [(ngModel)]="producto.nombre" name="nombre" required minlength="4" maxlength="30" placeholder="Nombre del producto" #nombre="ngModel">
+                <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                  <div *ngIf="nombre.errors.required">
+                    Ingrese el nombre del producto
+                  </div>
+                  <div *ngIf="nombre.errors.minlength">
+                    El nombre tiene que contener como minimo 4 caracteres
+                  </div>
+                  <div *ngIf="nombre.errors.maxlength">
+                    El nombre tiene que tener como maximo 30 caracteres
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Categoria : </label>
+                <input type ="text" class="form-control my-2" id="categoria" [(ngModel)]="producto.categoria" name="categoria" required minlength="4" maxlength="30" placeholder="Categoria de producto" #categoria="ngModel">
+                <div class="alert alert-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
+                  <div *ngIf="categoria.errors.required">
+                    Ingrese la categoría del producto
+                  </div>
+                  <div *ngIf="categoria.errors.minlength">
+                    La categoría tiene que contener como minimo 4 caracteres
+                  </div>
+                  <div *ngIf="categoria.errors.maxlength">
+                    El nombre tiene que tener como maximo 30 caracteres
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Precio : </label>
+                <input type ="text" class="form-control my-2" id="precio" [(ngModel)]="producto.precio" name="precio" required placeholder="Precio del producto" #precio="ngModel">
+                <div class="alert alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+                  <div *ngIf="precio.errors.required">
+                    Ingrese el precio del producto
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Cantidad : </label>
+                <input type ="text" class="form-control my-2" id="cantidad" [(ngModel)]="producto.cantidad" name="cantidad" required placeholder="Cantidad" #cantidad="ngModel">
+                <div class="alert alert-danger" *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)">
+                  <div *ngIf="cantidad.errors.required">
+                    Ingrese la cantidad del producto
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label>Inventario : </label>
+                <select class="form-select" aria-label="Default select example" id="inventario" [(ngModel)]="producto.inventario" name="inventario" required placeholder="Inventario" #inventario="ngModel">
+                  <option value="En Stock">En Stock</option>
+                  <option value="Limitado">Limitado</option>
+                  <option value="Agotado">Agotado</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="inventario.invalid && (inventario.dirty || inventario.touched)">
+                  <div *ngIf="inventario.errors.required">
+                    Ingrese el estado del producto
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label>Descripción : </label>
+                <input type ="text" class="form-control my-2" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" required minlength="6" maxlength="60" placeholder="Descripción" #descripcion="ngModel">
+                <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                  <div *ngIf="descripcion.errors.required">
+                    Ingrese la descripción del producto
+                  </div>
+                  <div *ngIf="descripcion.errors.minlength">
+                    La descripción tiene que contener como minimo 6 caracteres
+                  </div>
+                  <div *ngIf="descripcion.errors.maxlength">
+                    La descripción tiene que tener como maximo 60 caracteres
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Imagen : </label>
+                <input type="file" class="form-control my-2" (change)="selectFiles($event)" id="imagen" [(ngModel)]="producto.imagen" name="imagen" required #imagen="ngModel"/>
+                <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                  <div *ngIf="imagen.errors.required">
+                    Ingrese una imagen
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <button type="submit" class="btn btn-primary" [disabled]= "!productForm.form.valid">Guardar cambios</button>
+                </div>
+        </div>
+    </form>
+</div>
+</body>
